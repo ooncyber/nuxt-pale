@@ -48,12 +48,12 @@ nav {
     color: #fff;
 }
 
-#characters {
+.background-pacific-blue {
     background-color: var(--pacific-blue);
     padding: 0;
 }
 
-#main-section {
+.wave-bg {
     background-image: url('../assets/img/wave.svg');
     background-attachment: fixed;
     background-size: cover;
