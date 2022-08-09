@@ -45,9 +45,7 @@ export default {
   methods: {
     async getCharacters() {
       const url = this.API_BASE_URL + "/character/?name=" + this.pesquisaChar;
-      if (name) {
-        url += `?name=${name}`;
-      }
+
       const res = await fetch(url);
       this.characters = (await res.json()).results;
     },
