@@ -3,13 +3,7 @@ const API_BASE_URL = 'https://rickandmortyapi.com/api'
 
 $(document).ready(function () {
     getCharacters()
-
-    $('#character-name').on('input', function (e) {
-        e.preventDefault();
-        let characterName = $(this).val()
-
-        getCharacters(characterName)
-    });
+    setCharacterSearch()
 });
 
 /**
@@ -41,8 +35,10 @@ function getCharacters(name = null) {
  * @param characterList - an array of objects, each object is a character
  */
 function setCharactersCards(characterList) {
-    $('#characters > div').empty()
-    
+    var cardListElement = '#characters .cards'
+
+    $(cardListElement).empty()
+
     characterList.forEach(character => {
         let cardCharacter = `
             <div class="col-md-6">
@@ -55,11 +51,16 @@ function setCharactersCards(characterList) {
                             <div class="card-body">
                                 <h5 class="card-title">${character.name}</h5>
                                 <p class="card-text">
-                                    Genêro: ${character.gender}
+                                    <b>Genêro:</b> ${character.gender}
                                     <br>
-                                    Espécie: ${character.species}
+                                    <b>Espécie:</b> ${character.species}
                                 </p>
-                                <p class="card-text"><small class="text-muted">${character.created}</small></p>
+                                <p class="card-text">
+                                <span class="status-${character.status}"></span>
+                                    <small class="text-muted">
+                                        ${character.status}
+                                    </small>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -67,6 +68,19 @@ function setCharactersCards(characterList) {
             </div>
         `
 
-        $(cardCharacter).appendTo('#characters > div');
+        $(cardCharacter).appendTo(cardListElement);
+    });
+}
+
+/**
+ * When the user types in the input field, get the value of the input field and pass it to the
+ * getCharacters function.
+ */
+function setCharacterSearch() {
+    $('#character-name').on('input', function (e) {
+        e.preventDefault();
+        let characterName = $(this).val()
+
+        getCharacters(characterName)
     });
 }

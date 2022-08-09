@@ -25,6 +25,10 @@
     font-family: 'Didact Gothic';
 }
 
+nav {
+    background-color: white;
+}
+
 .header-section {
     display: flex;
     justify-content: center;
@@ -34,18 +38,42 @@
 }
 
 .form-control:focus {
-    border-color: var(--pacific-blue);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--pacific-blue);
+    border-color: var(--june-bud);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--june-bud);
 }
 
 .input-group-text {
-    background-color: var(--pacific-blue);
-    border-color: var(--pacific-blue);
+    background-color: var(--june-bud);
+    border-color: var(--june-bud);
     color: #fff;
 }
 
 #characters {
     background-color: var(--pacific-blue);
+    padding: 0;
+}
+
+#main-section {
+    background-image: url('../assets/img/wave.svg');
     background-attachment: fixed;
     background-size: cover;
+}
+
+.status-Dead {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    background: rgb(214, 61, 46);
+    margin-right: 5px;
+}
+.status-Alive {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    background: rgb(85, 204, 68);
+    margin-right: 5px;
 }
